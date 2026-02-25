@@ -1,3 +1,51 @@
+version: "1.0.0"
+
+variables:
+  patient_id:
+    data_type: string
+    required: true
+    aliases: [pt_id, patid]
+    description: Unique patient identifier
+
+  encounter_id:
+    data_type: string
+    required: true
+    aliases: [visit_id, enc_id]
+    description: Encounter/visit identifier
+
+  admission_dt:
+    data_type: datetime
+    required: true
+    aliases: [admit_dt, adm_dt]
+    description: Admission datetime
+
+  discharge_dt:
+    data_type: datetime
+    required: false
+    aliases: [dc_dt, dis_dt]
+    description: Discharge datetime
+
+  sbp_mmhg:
+    data_type: float
+    required: false
+    range: {min: 50, max: 250}
+    aliases: [SBP, sbp, systolic_bp]
+    description: Systolic blood pressure (mmHg)
+
+  dbp_mmhg:
+    data_type: float
+    required: false
+    range: {min: 30, max: 150}
+    aliases: [DBP, dbp, diastolic_bp]
+    description: Diastolic blood pressure (mmHg)
+
+  sex_code:
+    data_type: category
+    required: false
+    allowed_values: [1, 2, 9]
+    aliases: [sex, gender_code]
+    description: Sex code (1=male,2=female,9=unknown)
+
 from __future__ import annotations
 
 from dataclasses import dataclass
